@@ -9,11 +9,7 @@ import 'highlight.js/styles/github-dark.css';
 import { renderToString } from 'react-dom/server';
 const defaultCode = `### title`;
 
-import htmlToPdf from 'html-pdf';
-
-const toPdf = (children: React.ReactChildren) => {
-  const html = renderToString(children);
-};
+import pdf from 'html-pdf';
 
 const Editor = () => {
   const [code, setCode] = useState(defaultCode);
@@ -36,13 +32,16 @@ const Editor = () => {
   };
 
   return (
-    <div className='flex flex-col'>
+    <div
+      className='grid gap-2 min-h-wide'
+      style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}
+    >
       <CodeEditor
         value={code}
         onValueChange={(code) => setCode(code)}
         highlight={(code) => hljs.highlight(code, { language: 'md' }).value}
         padding={10}
-        className='rounded-5 highlight language-markdown mb-4'
+        className='rounded-5 highlight language-markdown mb-4 h-full'
         style={{
           fontFamily: '"Fira code", "Fira Mono", monospace',
           fontSize: 12,
@@ -50,7 +49,7 @@ const Editor = () => {
         }}
       />
       <div
-        className='mb-4 rounded-5 min-h-textarea p-2 markdown-compiled'
+        className='mb-4 rounded-5 min-h-textarea p-2 markdown-compiled h-full'
         style={{ backgroundColor: 'var(--color-neutral-600)' }}
         dangerouslySetInnerHTML={{ __html: compile(code) }}
       ></div>

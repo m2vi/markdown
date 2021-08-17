@@ -103,10 +103,12 @@ module.exports = {
         'no-chrome': 'none',
       },
       maxWidth: {
-        wide: '576px',
+        small: '576px',
+        wide: '969px',
       },
       minHeight: {
         textarea: '38px',
+        wide: '276px',
       },
     },
   },
