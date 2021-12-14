@@ -22,7 +22,7 @@
     "@types/nprogress": "^0.2.0",
     "@types/react-icons": "^3.0.0",
     "@types/react-modal": "^3.12.1",
-    "@types/react-table": "^7.7.2",
+    "@types/react-table": "^7.7.8",
     "@types/react-tooltip": "^4.2.4",
     "copy-to-clipboard": "^3.3.1",
     "crypto-js": "^4.1.1",
